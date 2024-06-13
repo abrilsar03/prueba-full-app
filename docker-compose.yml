@@ -18,12 +18,11 @@ services:
   api-prod:
     container_name: nestjs_api_prod
     image: nestjs-api-prod:1.0.0
-    # environment:
-    #   - MYSQL_ROOT_PASSWORD=pass123
-    #   - PORT=9000
-    #   - DB_NAME=yourcar
-    #   - DB_USER=root
-    #   - DB_PASS=pass
+    environment:
+      - PORT=9000
+      - DB_NAME=yourcar
+      - DB_USER=root
+      - DB_PASS=pass
     build:
       context: nestjs-cars-app
       target: production
@@ -45,9 +44,9 @@ services:
   app-prod:
     container_name: react_app_prod
     image: react-app-prod:1.0.0
-    # environment:
-    #   - PORT=3000
-    #   - REACT_APP_API_URL=http://localhost:9000
+    environment:
+      - PORT=3000
+      - REACT_APP_API_URL=http://localhost:9000
     build:
       context: react-cars-app
       target: production
